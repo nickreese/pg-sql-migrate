@@ -9,7 +9,7 @@ new Command()
   .option('-c, --config <path>', 'Path to the configuration file', DEFAULT_CONFIG_FILE)
   .action(async (name: string, content: string | undefined, { config }: { config?: string }) => {
     const { directory } = loadConfig(config);
-    const file = `${new Date().toISOString()}_${name}.sql`;
+    const file = `${new Date().toISOString()}_${name}.sql`.replace("T", "").substr(0,18);
 
     writeFileSync(join(directory, file), content || '');
 
