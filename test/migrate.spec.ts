@@ -29,22 +29,22 @@ describe('Migrate', () => {
     expect(results).toEqual([
       {
         id: '2018-12-31T11:12:39.672Z',
-        name: 'test-things.pgsql',
+        name: 'test-things.sql',
         content: 'CREATE TABLE my_test (id INTEGER PRIMARY KEY, name VARCHAR);\n',
       },
       {
         id: '2018-12-31T11:57:10.022Z',
-        name: 'test-things2.pgsql',
+        name: 'test-things2.sql',
         content: 'ALTER TABLE my_test ADD COLUMN additional VARCHAR;\n',
       },
       {
         id: '2018-12-31T12:10:49.562Z',
-        name: 'test-other.pgsql',
+        name: 'test-other.sql',
         content: 'ALTER TABLE my_test ADD COLUMN additional_2 VARCHAR;\n',
       },
       {
         id: '2019-01-02T08:36:08.858Z',
-        name: 'test-other-3.pgsql',
+        name: 'test-other-3.sql',
         content: 'ALTER TABLE my_test ADD COLUMN additional_3 VARCHAR;\n',
       },
     ]);

@@ -16,7 +16,7 @@ class MigrationsReadable extends stream_1.Readable {
         this.directory = directory;
     }
     async initialize() {
-        const migrationFiles = fs_1.readdirSync(this.directory).filter(file => file.endsWith('.pgsql'));
+        const migrationFiles = fs_1.readdirSync(this.directory).filter(file => file.endsWith('.sql'));
         await this.initState();
         const completed = await this.loadState();
         this.migrationFiles = migrationFiles.filter(file => !completed.includes(exports.nameParts(file)[0]));

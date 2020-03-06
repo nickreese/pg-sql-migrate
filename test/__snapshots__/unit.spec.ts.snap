@@ -6,13 +6,13 @@ Array [
     "content": "CREATE TABLE my_test (id INTEGER PRIMARY KEY, name VARCHAR);
 ",
     "id": "2018-12-31T11:12:39.672Z",
-    "name": "test-things.pgsql",
+    "name": "test-things.sql",
   },
   Object {
     "content": "ALTER TABLE my_test ADD COLUMN additional VARCHAR;
 ",
     "id": "2018-12-31T11:57:10.022Z",
-    "name": "test-things2.pgsql",
+    "name": "test-things2.sql",
   },
 ]
 `;

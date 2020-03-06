@@ -24,7 +24,7 @@ export class MigrationsReadable extends Readable {
   }
 
   private async initialize(): Promise<void> {
-    const migrationFiles = readdirSync(this.directory).filter(file => file.endsWith('.pgsql'));
+    const migrationFiles = readdirSync(this.directory).filter(file => file.endsWith('.sql'));
     await this.initState();
     const completed = await this.loadState();
 

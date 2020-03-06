@@ -40,7 +40,7 @@ To create new migrations in the designated directory you can run:
 yarn pg-migrate create my_migration
 ```
 
-This will create a file `migrations/<timestamp>_my_migration.pgsql` that you can place raw sql into. After that, you can run the migration(s) by calling
+This will create a file `migrations/<timestamp>_my_migration.sql` that you can place raw sql into. After that, you can run the migration(s) by calling
 
 ```bash
 yarn pg-migrate execute

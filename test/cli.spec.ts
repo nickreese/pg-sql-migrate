@@ -11,7 +11,7 @@ let pg: Client;
 
 const deleteMigrations = (dir: string): void =>
   readdirSync(dir)
-    .filter(file => file.endsWith('pgsql'))
+    .filter(file => file.endsWith('sql'))
     .forEach(file => unlinkSync(join(dir, file)));
 
 describe('Cli', () => {
@@ -30,11 +30,11 @@ describe('Cli', () => {
 
   it('Should use streams to execute migrations', async () => {
     writeFileSync(
-      join(directory, '2018-12-31T11:12:39.672Z_test-things.pgsql'),
+      join(directory, '2018-12-31T11:12:39.672Z_test-things.sql'),
       'CREATE TABLE my_test (id INTEGER PRIMARY KEY, name VARCHAR)',
     );
     writeFileSync(
-      join(directory, '2018-12-31T11:57:10.022Z_test-things2.pgsql'),
+      join(directory, '2018-12-31T11:57:10.022Z_test-things2.sql'),
       'ALTER TABLE my_test ADD COLUMN additional VARCHAR',
     );
 
@@ -65,7 +65,7 @@ describe('Cli', () => {
 
   it('Should use not run migrations on dry run', async () => {
     writeFileSync(
-      join(directory, '2018-12-31T11:12:39.672Z_test-things.pgsql'),
+      join(directory, '2018-12-31T11:12:39.672Z_test-things.sql'),
       'CREATE TABLE my_test (id INTEGER PRIMARY KEY, name VARCHAR)',
     );
 
@@ -81,7 +81,7 @@ describe('Cli', () => {
   });
 
   it('Should handle error in migration', async () => {
-    writeFileSync(join(directory, '2018-12-31T11:12:39.672Z_test-things.pgsql'), 'CREATE TABLE');
+    writeFileSync(join(directory, '2018-12-31T11:12:39.672Z_test-things.sql'), 'CREATE TABLE');
 
     expect(() => {
       execSync(`scripts/pg-migrate execute --config ${configFile}`);
