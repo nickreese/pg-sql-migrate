@@ -89,7 +89,7 @@ crash.log
 
 # Custom
 # ----------------------------
-dist
+# dist
 packages/*/dist
 .watchmanconfig
 reports
