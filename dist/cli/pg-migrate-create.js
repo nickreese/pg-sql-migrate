@@ -10,7 +10,7 @@ new commander_1.Command()
     .option('-c, --config <path>', 'Path to the configuration file', types_1.DEFAULT_CONFIG_FILE)
     .action(async (name, content, { config }) => {
     const { directory } = migrate_1.loadConfig(config);
-    const d = new Date().toISOString().replace("T", "").substr(0, 18);
+    const d = new Date().toISOString().replace("T", "_").substr(0, 18);
     const file = `${d}_${name}.sql`;
     fs_1.writeFileSync(path_1.join(directory, file), content || '');
     console.log(`Created ${file}`);
